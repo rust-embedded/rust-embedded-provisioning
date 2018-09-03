@@ -1,0 +1,13 @@
+### https://raw.github.com/github/gitignore/1a9f616ce525987555d43c72d59eb830d1856bd7/Terraform.gitignore
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+
