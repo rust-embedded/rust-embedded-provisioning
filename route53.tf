@@ -27,16 +27,6 @@ resource "aws_route53_record" "rust_embedded_org_www" {
   records = [ "rust-embedded.org" ]
 }
 
-resource "aws_route53_record" "rust_embedded_org_book_a" {
-  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
-  name = "book.rust-embedded.org."
-  type = "A"
-  ttl = "300"
-  records = [
-    "46.101.143.249"
-  ]
-}
-
 resource "aws_route53_record" "rust_embedded_org_book" {
   zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
   name = "book.rust-embedded.org."
