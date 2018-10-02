@@ -27,24 +27,12 @@ resource "aws_route53_record" "rust_embedded_org_www" {
   records = [ "rust-embedded.org" ]
 }
 
-resource "aws_route53_record" "rust_embedded_org_book_a" {
+resource "aws_route53_record" "rust_embedded_org_book" {
   zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
   name = "book.rust-embedded.org."
-  type = "A"
+  type = "CNAME"
   ttl = "300"
-  records = [
-    "46.101.143.249"
-  ]
-}
-
-resource "aws_route53_record" "rust_embedded_org_book_aaaa" {
-  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
-  name = "book.rust-embedded.org."
-  type = "AAAA"
-  ttl = "300"
-  records = [
-    "2a03:b0c0:3:d0:0:0:cb7:5001"
-  ]
+  records = [ "rust-embedded.org" ]
 }
 
 resource "aws_route53_record" "rust_embedded_org_embedonomicon" {
