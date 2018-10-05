@@ -32,7 +32,7 @@ resource "aws_route53_record" "rust_embedded_org_book" {
   name = "book.rust-embedded.org."
   type = "CNAME"
   ttl = "300"
-  records = [ "rust-embedded.org" ]
+  records = [ "rust-embedded.github.io" ]
 }
 
 resource "aws_route53_record" "rust_embedded_org_embedonomicon" {
@@ -40,7 +40,7 @@ resource "aws_route53_record" "rust_embedded_org_embedonomicon" {
   name = "embedonomicon.rust-embedded.org."
   type = "CNAME"
   ttl = "300"
-  records = [ "rust-embedded.org" ]
+  records = [ "rust-embedded.github.io" ]
 }
 
 // rust-embedded.com
