@@ -86,12 +86,23 @@ resource "aws_route53_record" "rust_embedded_com_www" {
   }
 }
 
+resource "aws_s3_bucket" "book_rust_embedded_com_redirect" {
+  bucket = "book.rust-embedded.com"
+  acl = "public-read"
+  website {
+    redirect_all_requests_to = "book.rust-embedded.org"
+  }
+}
+
 resource "aws_route53_record" "rust_embedded_com_book" {
   zone_id = "${aws_route53_zone.rust_embedded_com.zone_id}"
   name = "book.rust-embedded.com."
-  type = "CNAME"
-  ttl = "300"
-  records = [ "book.rust-embedded.org" ]
+  type = "A"
+  alias {
+    name    = "${aws_s3_bucket.book_rust_embedded_com_redirect.website_domain}"
+    zone_id = "${aws_s3_bucket.book_rust_embedded_com_redirect.hosted_zone_id}"
+    evaluate_target_health = false
+  }
 }
 
 resource "aws_s3_bucket" "embedonomicon_rust_embedded_com_redirect" {
