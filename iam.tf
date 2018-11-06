@@ -15,6 +15,10 @@ resource "aws_iam_user" "nastevens" {
   name = "nastevens"
 }
 
+resource "aws_iam_user" "ryankurte" {
+  name = "ryankurte"
+}
+
 # Groups and group membership
 resource "aws_iam_group" "administrators" {
   name = "Administrators"
@@ -33,7 +37,8 @@ resource "aws_iam_group_policy_attachment" "administrators_change_pw" {
 resource "aws_iam_group_membership" "administrators_membership" {
   name = "AdministratorsMembership"
   users = [
-    "${aws_iam_user.nastevens.name}"
+    "${aws_iam_user.nastevens.name}",
+    "${aws_iam_user.ryankurte.name}"
   ]
   group = "${aws_iam_group.administrators.name}"
 }
