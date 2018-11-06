@@ -31,9 +31,17 @@ resource "aws_route53_record" "rust_embedded_org_www" {
 resource "aws_route53_record" "rust_embedded_org_docs" {
   zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
   name = "docs.rust-embedded.org."
-  type = "CNAME"
+  type = "A"
   ttl = "300"
-  records = [ "rust-embedded.org" ]
+
+  // Github apex domain IP addresses
+  // https://help.github.com/articles/setting-up-an-apex-domain/
+  records = [
+    "185.199.108.153",
+    "185.199.109.153",
+    "185.199.110.153",
+    "185.199.111.153"
+  ]
 }
 
 // rust-embedded.com
