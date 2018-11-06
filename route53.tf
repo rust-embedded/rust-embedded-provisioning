@@ -1,4 +1,5 @@
 // rust-embedded.org
+
 resource "aws_route53_zone" "rust_embedded_org" {
   name = "rust-embedded.org."
 }
@@ -27,23 +28,16 @@ resource "aws_route53_record" "rust_embedded_org_www" {
   records = [ "rust-embedded.org" ]
 }
 
-resource "aws_route53_record" "rust_embedded_org_book" {
+resource "aws_route53_record" "rust_embedded_org_docs" {
   zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
-  name = "book.rust-embedded.org."
-  type = "CNAME"
-  ttl = "300"
-  records = [ "rust-embedded.org" ]
-}
-
-resource "aws_route53_record" "rust_embedded_org_embedonomicon" {
-  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
-  name = "embedonomicon.rust-embedded.org."
+  name = "docs.rust-embedded.org."
   type = "CNAME"
   ttl = "300"
   records = [ "rust-embedded.org" ]
 }
 
 // rust-embedded.com
+
 resource "aws_route53_zone" "rust_embedded_com" {
   name = "rust-embedded.com."
 }
@@ -82,33 +76,6 @@ resource "aws_route53_record" "rust_embedded_com_www" {
   alias {
     name    = "${aws_s3_bucket.www_rust_embedded_com_redirect.website_domain}"
     zone_id = "${aws_s3_bucket.www_rust_embedded_com_redirect.hosted_zone_id}"
-    evaluate_target_health = false
-  }
-}
-
-resource "aws_route53_record" "rust_embedded_com_book" {
-  zone_id = "${aws_route53_zone.rust_embedded_com.zone_id}"
-  name = "book.rust-embedded.com."
-  type = "CNAME"
-  ttl = "300"
-  records = [ "book.rust-embedded.org" ]
-}
-
-resource "aws_s3_bucket" "embedonomicon_rust_embedded_com_redirect" {
-  bucket = "embedonomicon.rust-embedded.com"
-  acl = "public-read"
-  website {
-    redirect_all_requests_to = "embedonomicon.rust-embedded.org"
-  }
-}
-
-resource "aws_route53_record" "rust_embedded_com_embedonomicon" {
-  zone_id   = "${aws_route53_zone.rust_embedded_com.zone_id}"
-  name      = "embedonomicon.rust-embedded.com."
-  type      = "A"
-  alias {
-    name    = "${aws_s3_bucket.embedonomicon_rust_embedded_com_redirect.website_domain}"
-    zone_id = "${aws_s3_bucket.embedonomicon_rust_embedded_com_redirect.hosted_zone_id}"
     evaluate_target_health = false
   }
 }
