@@ -28,6 +28,33 @@ resource "aws_route53_record" "rust_embedded_org_www" {
   records = [ "rust-embedded.org" ]
 }
 
+// MX records for teams.rust-embedded.org email
+resource "aws_route53_record" "teams_rust_embedded_org_mx" {
+  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
+  name = "teams.rust-embedded.org."
+  type = "MX"
+  ttl = "300"
+  records = [ "mxa.mailgun.org", "mxb.mailgun.org" ]
+}
+
+// SPF record for teams.rust-embedded.org email
+resource "aws_route53_record" "teams_rust_embedded_org_spf" {
+  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
+  name = "teams.rust-embedded.org."
+  type = "TXT"
+  ttl = "300"
+  records = [ "v=spf1 include:mailgun.org ~all" ]
+}
+
+// DomainKey record for teams.rust-embedded.org email
+resource "aws_route53_record" "teams_rust_embedded_org_domainkey" {
+  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
+  name = "pic._domainkey.teams.rust-embedded.org."
+  type = "TXT"
+  ttl = "300"
+  records = [ "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMAoVmF2CmWOqzsOpxn+vvlODaIGm6NonRdEDwiFkzIWOS3QnzipZN0RjfhPA2cJ8Ds3FPqhJIPgnjxlGxnypvuaa/2AvbMZAqeyf16ZsBkh7FrZtpZROFcFRtzPD876VHey0BiIJFzZCgS5l9zSeYMKAfe5nos9848sSEurC/yQIDAQAB" ]
+}
+
 resource "aws_route53_record" "rust_embedded_org_docs" {
   zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
   name = "docs.rust-embedded.org."
