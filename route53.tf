@@ -49,10 +49,10 @@ resource "aws_route53_record" "teams_rust_embedded_org_spf" {
 // DomainKey record for teams.rust-embedded.org email
 resource "aws_route53_record" "teams_rust_embedded_org_domainkey" {
   zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
-  name = "pic._domainkey.teams.rust-embedded.org."
+  name = "mx._domainkey.teams.rust-embedded.org."
   type = "TXT"
   ttl = "300"
-  records = [ "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMAoVmF2CmWOqzsOpxn+vvlODaIGm6NonRdEDwiFkzIWOS3QnzipZN0RjfhPA2cJ8Ds3FPqhJIPgnjxlGxnypvuaa/2AvbMZAqeyf16ZsBkh7FrZtpZROFcFRtzPD876VHey0BiIJFzZCgS5l9zSeYMKAfe5nos9848sSEurC/yQIDAQAB" ]
+  records = [ "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCl4e0N3NmgGI0m5dhFYlHqRyfpbViTdidprT+BDGPzyimP+MG8tV3Wj7VG5umZDAIis51DiUXWcQJADCfVYz7fnb0sV1mFoX9bA1SsKhr11V2DPK9a4IZ7g9JD8kjlY8bpThLBk9RP3d13aS1VKZ2Tm0WYSK1egB4NHVGgLJPJwwIDAQAB" ]
 }
 
 resource "aws_route53_record" "rust_embedded_org_docs" {
