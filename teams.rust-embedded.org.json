@@ -1,0 +1,52 @@
+[
+    {
+        "Address": "cortex-a@teams.rust-embedded.org",
+        "Name": "cortex-a",
+        "Description": "Cortex A Team"
+    },
+    {
+        "Address": "cortex-m@teams.rust-embedded.org",
+        "Name": "cortex-m",
+        "Description": "Cortex-m Team"
+    },
+    {
+        "Address": "cortex-r@teams.rust-embedded.org",
+        "Name": "cortex-r",
+        "Description": "Cortex-R Team"
+    },
+    {
+        "Address": "embedded-hal@teams.rust-embedded.org",
+        "Name": "embedded-hal",
+        "Description": "Embedded Hal Team"
+    },
+    {
+        "Address": "embedded-linux@teams.rust-embedded.org",
+        "Name": "embedded-linux",
+        "Description": "Embedded Linux Team"
+    },
+    {
+        "Address": "infrastructure@teams.rust-embedded.org",
+        "Name": "infrastructure",
+        "Description": "Infrastructure Team"
+    },
+    {
+        "Address": "irr-2018@teams.rust-embedded.org",
+        "Name": "irr-2018",
+        "Description": "Increasing Rust Reach 2018 Team"
+    },
+    {
+        "Address": "msp430@teams.rust-embedded.org",
+        "Name": "msp430",
+        "Description": "msp430 Team"
+    },
+    {
+        "Address": "resources@teams.rust-embedded.org",
+        "Name": "resources",
+        "Description": "Resources Team"
+    },
+    {
+        "Address": "risk-v@teams.rust-embedded.org",
+        "Name": "risk-v",
+        "Description": "RISK-V team"
+    }
+]
