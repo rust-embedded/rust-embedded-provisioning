@@ -34,7 +34,7 @@ resource "aws_route53_record" "teams_rust_embedded_org_mx" {
   name = "teams.rust-embedded.org."
   type = "MX"
   ttl = "300"
-  records = [ "mxa.mailgun.org", "mxb.mailgun.org" ]
+  records = [ "10 mxa.mailgun.org.", "10 mxb.mailgun.org." ]
 }
 
 // SPF record for teams.rust-embedded.org email
