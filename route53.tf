@@ -36,6 +36,22 @@ resource "aws_route53_record" "rust_embedded_org_docs" {
   records = [ "rust-embedded.github.io" ]
 }
 
+resource "aws_route53_record" "rust_embedded_org_blog" {
+  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
+  name = "blog.rust-embedded.org."
+  type = "CNAME"
+  ttl = "300"
+  records = [ "rust-embedded.github.io" ]
+}
+
+resource "aws_route53_record" "rust_embedded_org_showcase" {
+  zone_id = "${aws_route53_zone.rust_embedded_org.zone_id}"
+  name = "showcase.rust-embedded.org."
+  type = "CNAME"
+  ttl = "300"
+  records = [ "rust-embedded.github.io" ]
+}
+
 // rust-embedded.com
 
 resource "aws_route53_zone" "rust_embedded_com" {
